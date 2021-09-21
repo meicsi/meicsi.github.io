@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEICSi</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body class="no-scroll">
+
+    <div id="loader">
+        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+            <path fill="currentColor" d="M62.82846,138.71084h4.35478l10.83543-17.83511v17.83511L78.02283,160h3.893L81.92,138.71084V120.87573l10.83544,17.83511h4.41612l-2.61993-4.47542L84.13843,117.30623H75.8002l-10.383,16.92919ZM97.17153,21.28916h-4.3558l-10.8344,17.8351V21.28916L81.97717,0h-3.894L78.08,21.28916v17.8351L67.2446,21.28916H62.82846l2.61994,4.47542L75.86157,42.69377H84.1998l10.382-16.92919ZM21.28916,62.82846v4.35478l17.8351,10.83543H21.28916L0,78.02283v3.893L21.28916,81.92h17.8351L21.28916,92.7554v4.41614l4.47542-2.61994L42.69377,84.13843V75.8002l-16.92919-10.383ZM138.71084,97.17154V92.81676L120.87573,81.98133h17.83511L160,81.97717v-3.893L138.71084,78.08H120.87573L138.71084,67.2446V62.82846l-4.47542,2.61994L117.30623,75.86157V84.1998l16.92919,10.382Zm-112.368,12.201,3.07964,3.07964,20.273-4.94968L37.08469,120.11441l-15.05188,15.056,2.75307,2.75306L39.843,122.87266l12.61187-12.61083-4.95073,20.273,3.12229,3.12229,1.31256-5.01728L56.54645,109.306,54.978,107.73759l-2.75826-2.75826-1.56947-1.56946-19.312,4.62934ZM133.65714,50.62742l-3.07964-3.07965-20.273,4.94969,12.61188-12.61187,15.0498-15.056-2.752-2.75306L120.15705,37.12733,107.54517,49.7392l4.95074-20.27406-3.12333-3.12228-1.31153,5.01729L103.45355,50.694l1.56842,1.56843,2.75827,2.75826,1.56945,1.56946,19.312-4.62934Zm-24.28456,83.02972,3.07964-3.07964-4.94969-20.273,12.61188,12.61188,15.056,15.0498,2.75306-2.752-15.05084-15.05708L110.2608,107.54518l20.27405,4.95073,3.12229-3.12333-5.01728-1.31152L109.306,103.45355,107.7376,105.022l-2.75827,2.75826-1.56947,1.56946,4.62935,19.312ZM50.62638,26.34286,47.54777,29.4225l4.94969,20.273L39.88559,37.08365l-15.056-15.05084L22.0765,24.78692,37.12733,39.843,49.7392,52.45482l-20.274-4.95073-3.12229,3.12333,5.01729,1.31152L50.694,56.54645,52.26241,54.978l2.75826-2.75826,1.56842-1.56947-4.6283-19.312Z" />
+        </svg>
+
+    </div>
+    <div id="intro"></div>
+    <div id="swipe-down"></div>
+
+
+    <header class="header">
+        <div class="header__backdrop">
+            <div class="header__backdrop-image header__backdrop-image--1 is-active"></div>
+            <div class="header__backdrop-image header__backdrop-image--2"></div>
+            <div class="header__backdrop-image header__backdrop-image--3"></div>
+            <div class="header__backdrop-image header__backdrop-image--4"></div>
+            <div class="header__backdrop-image header__backdrop-image--5"></div>
+        </div>
+
+        <div class="container">
+            <h1 class="header__logo">
+                <a href="/">
+                    <div class="header__logo-a">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+                            <path fill="currentColor" d="M62.82846,138.71084h4.35478l10.83543-17.83511v17.83511L78.02283,160h3.893L81.92,138.71084V120.87573l10.83544,17.83511h4.41612l-2.61993-4.47542L84.13843,117.30623H75.8002l-10.383,16.92919ZM97.17153,21.28916h-4.3558l-10.8344,17.8351V21.28916L81.97717,0h-3.894L78.08,21.28916v17.8351L67.2446,21.28916H62.82846l2.61994,4.47542L75.86157,42.69377H84.1998l10.382-16.92919ZM21.28916,62.82846v4.35478l17.8351,10.83543H21.28916L0,78.02283v3.893L21.28916,81.92h17.8351L21.28916,92.7554v4.41614l4.47542-2.61994L42.69377,84.13843V75.8002l-16.92919-10.383ZM138.71084,97.17154V92.81676L120.87573,81.98133h17.83511L160,81.97717v-3.893L138.71084,78.08H120.87573L138.71084,67.2446V62.82846l-4.47542,2.61994L117.30623,75.86157V84.1998l16.92919,10.382Zm-112.368,12.201,3.07964,3.07964,20.273-4.94968L37.08469,120.11441l-15.05188,15.056,2.75307,2.75306L39.843,122.87266l12.61187-12.61083-4.95073,20.273,3.12229,3.12229,1.31256-5.01728L56.54645,109.306,54.978,107.73759l-2.75826-2.75826-1.56947-1.56946-19.312,4.62934ZM133.65714,50.62742l-3.07964-3.07965-20.273,4.94969,12.61188-12.61187,15.0498-15.056-2.752-2.75306L120.15705,37.12733,107.54517,49.7392l4.95074-20.27406-3.12333-3.12228-1.31153,5.01729L103.45355,50.694l1.56842,1.56843,2.75827,2.75826,1.56945,1.56946,19.312-4.62934Zm-24.28456,83.02972,3.07964-3.07964-4.94969-20.273,12.61188,12.61188,15.056,15.0498,2.75306-2.752-15.05084-15.05708L110.2608,107.54518l20.27405,4.95073,3.12229-3.12333-5.01728-1.31152L109.306,103.45355,107.7376,105.022l-2.75827,2.75826-1.56947,1.56946,4.62935,19.312ZM50.62638,26.34286,47.54777,29.4225l4.94969,20.273L39.88559,37.08365l-15.056-15.05084L22.0765,24.78692,37.12733,39.843,49.7392,52.45482l-20.274-4.95073-3.12229,3.12333,5.01729,1.31152L50.694,56.54645,52.26241,54.978l2.75826-2.75826,1.56842-1.56947-4.6283-19.312Z" />
+                        </svg>
+
+                    </div>
+                    <div class="header__logo-b">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="726" height="100" viewBox="0 0 726 100">
+                            <defs>
+                                <linearGradient id="Gradient1">
+                                    <stop class="stop1" offset="0%" />
+                                    <stop class="stop2" offset="50%" />
+                                    <stop class="stop3" offset="100%" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M72.89542,77.58081,26.98287,0H0V97.31518H17.18368V15.70653l47.792,81.60865H80.68225l47.79266-81.60865V97.31518H145.658V0H118.6751ZM191.15455,97.31518H290.497V82.41335h-82.1594V56.1619h79.47521V41.26007H208.33762V15.03843H290.497V0H191.15455ZM333.45962,0h17.18367V97.31518H333.45962Zm119.211,84.69581c-26.04157,0-42.0176-10.20217-42.0176-34.63683,0-24.43155,15.84-34.50022,42.0176-34.50022,22.95812,0,35.98047,8.0563,38.53115,21.48161h18.52421C506.90888,16.50068,488.51443.25458,452.67054.25458,411.86.25458,392.125,19.58723,392.125,50.059c0,30.4755,19.735,49.941,60.54552,49.941,35.84389,0,54.23834-16.379,57.18888-37.05155H491.20169C488.65105,76.37314,475.49208,84.69581,452.67058,84.69581Zm156.53818-42.69c-31.28018-2.149-38.2586-4.56369-38.2586-13.69478,0-8.7244,6.97842-13.28871,34.49964-13.28871,29.40135,0,40.94654,4.83316,40.94654,17.04708h18.39135c-.136-21.34439-22.01683-31.816-57.05541-31.816-33.56266,0-55.17653,6.71265-55.17653,27.25235,0,20.67318,16.37835,27.11885,55.98124,29.40131,35.30864,2.149,41.88534,3.75837,41.88534,13.827,0,9.39685-10.20219,14.49949-37.85685,14.49949-34.7697,0-45.24073-6.84864-45.24073-18.52733H548.79744c1.34425,25.24,25.37286,33.29318,63.90151,33.29318,31.148,0,56.11783-5.63787,56.11783-30.206C668.81609,46.3,645.8579,44.5571,609.20876,42.00578ZM710.93983,30.717H726V98.93762H710.93983ZM721.49659,15.7146l4.41587-4.41591V5.0542L721.49659.6383h-6.2445l-4.41595,4.4159v6.24449l4.41595,4.41591Z" />
+                        </svg>
+
+                    </div>
+                </a>
+            </h1>
+        </div>
+
+        <div class="header__section-title">
+            <div class="header__section-title-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
+                    <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
+                </svg>
+
+            </div>
+            <div class="header__section-title-text">About</div>
+        </div>
+
+        <div class="header__nav-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="78" height="54" viewBox="0 0 78 54">
+                <path fill="currentColor" d="M77,17.165H1v-2H77ZM77,36.835H1v2H77Z" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="78" height="54" viewBox="0 0 78 54">
+                <path fill="currentColor" d="M40.41406,27,65.832,52.418,64.418,53.832,39,28.41406,13.582,53.832,12.168,52.418,37.58594,27,12.168,1.582,13.582.168,39,25.58594,64.418.168,65.832,1.582Z" />
+            </svg>
+
+        </div>
+
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__links">
+                    <div class="nav__indicator">
+                    </div>
+                    <li class="nav__item">
+                        <a class="nav__link text-base" href="#about">
+                            <div class="nav__link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
+                                    <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
+                                </svg>
+                            </div>
+                            <div class="nav__link-text" data-set="text-reveal">About</div>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link text-base" href="#services">
+                            <div class="nav__link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
+                                    <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
+                                </svg>
+                            </div>
+                            <div class="nav__link-text" data-set="text-reveal">Services</div>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link text-base" href="#expertise">
+                            <div class="nav__link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
+                                    <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
+                                </svg>
+                            </div>
+                            <div class="nav__link-text" data-set="text-reveal">Expertise</div>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link text-base" href="#careers">
+                            <div class="nav__link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
+                                    <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
+                                </svg>
+                            </div>
+                            <div class="nav__link-text" data-set="text-reveal">Careers</div>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link text-base" href="#contact">
+                            <div class="nav__link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
+                                    <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
+                                </svg>
+                            </div>
+                            <div class="nav__link-text" data-set="text-reveal">Contact</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <section id="symbol-moto">
+        <div class="container" style="width: 100%; height: 100%;">
+            <div class="row" style="height: 100%;">
+                <div class="col" style="position: relative;">
+                    <div class="symbol">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+                            <path fill="currentColor" d="M62.82846,138.71084h4.35478l10.83543-17.83511v17.83511L78.02283,160h3.893L81.92,138.71084V120.87573l10.83544,17.83511h4.41612l-2.61993-4.47542L84.13843,117.30623H75.8002l-10.383,16.92919ZM97.17153,21.28916h-4.3558l-10.8344,17.8351V21.28916L81.97717,0h-3.894L78.08,21.28916v17.8351L67.2446,21.28916H62.82846l2.61994,4.47542L75.86157,42.69377H84.1998l10.382-16.92919ZM21.28916,62.82846v4.35478l17.8351,10.83543H21.28916L0,78.02283v3.893L21.28916,81.92h17.8351L21.28916,92.7554v4.41614l4.47542-2.61994L42.69377,84.13843V75.8002l-16.92919-10.383ZM138.71084,97.17154V92.81676L120.87573,81.98133h17.83511L160,81.97717v-3.893L138.71084,78.08H120.87573L138.71084,67.2446V62.82846l-4.47542,2.61994L117.30623,75.86157V84.1998l16.92919,10.382Zm-112.368,12.201,3.07964,3.07964,20.273-4.94968L37.08469,120.11441l-15.05188,15.056,2.75307,2.75306L39.843,122.87266l12.61187-12.61083-4.95073,20.273,3.12229,3.12229,1.31256-5.01728L56.54645,109.306,54.978,107.73759l-2.75826-2.75826-1.56947-1.56946-19.312,4.62934ZM133.65714,50.62742l-3.07964-3.07965-20.273,4.94969,12.61188-12.61187,15.0498-15.056-2.752-2.75306L120.15705,37.12733,107.54517,49.7392l4.95074-20.27406-3.12333-3.12228-1.31153,5.01729L103.45355,50.694l1.56842,1.56843,2.75827,2.75826,1.56945,1.56946,19.312-4.62934Zm-24.28456,83.02972,3.07964-3.07964-4.94969-20.273,12.61188,12.61188,15.056,15.0498,2.75306-2.752-15.05084-15.05708L110.2608,107.54518l20.27405,4.95073,3.12229-3.12333-5.01728-1.31152L109.306,103.45355,107.7376,105.022l-2.75827,2.75826-1.56947,1.56946,4.62935,19.312ZM50.62638,26.34286,47.54777,29.4225l4.94969,20.273L39.88559,37.08365l-15.056-15.05084L22.0765,24.78692,37.12733,39.843,49.7392,52.45482l-20.274-4.95073-3.12229,3.12333,5.01729,1.31152L50.694,56.54645,52.26241,54.978l2.75826-2.75826,1.56842-1.56947-4.6283-19.312Z" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div class="col" style="position: relative;">
+                    <div class="moto-container">
+                        <div class="moto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="640" height="40" viewBox="0 0 640 40">
+                                <path fill="currentColor" d="M.00911,1.07762H5.46039V38.92236H.00911ZM48.68872,3.1773a14.4825,14.4825,0,0,1,5.30275,6.35259,24.79642,24.79642,0,0,1,1.98045,10.4984,24.652,24.652,0,0,1-1.98045,10.44383,14.4825,14.4825,0,0,1-5.30275,6.35259,13.58533,13.58533,0,0,1-7.41051,2.09866H19.856V1.07762H41.27822A13.57757,13.57757,0,0,1,48.68872,3.1773ZM38.50962,32.786a16.799,16.799,0,0,0,6.57994-1.07712,7.30938,7.30938,0,0,0,3.76892-3.84874,19.21978,19.21978,0,0,0,1.2782-7.83287,19.36643,19.36643,0,0,0-1.2782-7.88744,7.31849,7.31849,0,0,0-3.76892-3.84975A16.82293,16.82293,0,0,0,38.50962,7.214H25.30731V32.786ZM101.115,1.07762V7.10688H75.05091v9.90527h25.21232v5.9757H75.05091v9.95882H101.115v5.9757H69.59962V1.07762Zm54.34309,37.84576h-6.17576l-3.70527-8.18349H123.81439l-3.70527,8.18349h-6.21821l17.334-37.84475h6.89923ZM134.67452,6.78354,126.4981,24.81875h16.35385Zm36.032,19.8651a6.03441,6.03441,0,0,0,3.21521,5.57153q3.21469,1.8597,11.137,1.85819,6.38845,0,9.199-1.453a4.663,4.663,0,0,0,2.811-4.361,4.20647,4.20647,0,0,0-1.00133-3.09394,7.05318,7.05318,0,0,0-3.66282-1.48028q-2.663-.485-8.625-.969a47.98649,47.98649,0,0,1-10.34886-1.66923,10.7732,10.7732,0,0,1-5.59982-3.58,10.60674,10.60674,0,0,1-1.8107-6.54053q0-5.86707,4.51461-8.39871Q175.0499.003,183.52491.00252q8.51793,0,13.28718,3.23036a10.866,10.866,0,0,1,4.81269,9.52838h-5.83424a5.78883,5.78883,0,0,0-1.29941-3.95686,7.87723,7.87723,0,0,0-4.15186-2.18051,32.81007,32.81007,0,0,0-7.53784-.69821,28.94942,28.94942,0,0,0-6.64359.59211,6.18194,6.18194,0,0,0-3.34353,1.74805,4.5375,4.5375,0,0,0-.9589,2.98785,4.03052,4.03052,0,0,0,.98012,2.907,6.95311,6.95311,0,0,0,3.49205,1.58839,61.31287,61.31287,0,0,0,7.66616.99629,99.568,99.568,0,0,1,10.88134,1.42572,11.17253,11.17253,0,0,1,5.85546,3.01412q2.17193,2.23558,2.17242,6.70321,0,6.83711-4.7066,9.47483-4.70609,2.63571-13.09621,2.63723-9.70926,0-14.84224-3.0414-5.132-3.04191-5.43006-10.30945h5.8787Zm75.46618,8.02183q-4.85462-5.33054-4.85512-14.69675,0-9.36822,4.85512-14.67047Q251.02736.00152,260.61081.0005q9.5395,0,14.39564,5.30275,4.85463,5.30325,4.85512,14.67047,0,9.36823-4.85512,14.69674-4.85614,5.33054-14.39564,5.329Q251.02735,39.99949,246.17273,34.67047Zm27.85258-14.69675q0-13.83485-13.41552-13.83484-6.55972,0-9.98712,3.33746-3.42839,3.339-3.4284,10.49839,0,13.8879,13.41552,13.8884Q274.02635,33.86162,274.02531,19.97372Zm50.852,12.38185V1.07762h5.45128V38.92236h-7.79348l-24.02-31.27693V38.92236h-5.45127V1.07762h7.79348Zm50.12555-5.70693a6.03442,6.03442,0,0,0,3.2152,5.57153q3.21469,1.8597,11.137,1.85819,6.38846,0,9.199-1.453a4.66305,4.66305,0,0,0,2.811-4.361,4.20647,4.20647,0,0,0-1.00134-3.09394A7.05318,7.05318,0,0,0,396.701,23.6901q-2.663-.485-8.62506-.969A47.98649,47.98649,0,0,1,377.727,21.05186a10.77313,10.77313,0,0,1-5.59981-3.58,10.60681,10.60681,0,0,1-1.81069-6.54053q0-5.86707,4.5146-8.39871Q379.34628.003,387.82125.00252q8.51794,0,13.28719,3.23036a10.866,10.866,0,0,1,4.81269,9.52838H400.0869a5.78868,5.78868,0,0,0-1.29942-3.95686,7.87718,7.87718,0,0,0-4.15188-2.18051,32.81,32.81,0,0,0-7.53782-.69821,28.94961,28.94961,0,0,0-6.64361.59211,6.18179,6.18179,0,0,0-3.34351,1.74805,4.53755,4.53755,0,0,0-.9589,2.98785,4.03048,4.03048,0,0,0,.98012,2.907,6.95311,6.95311,0,0,0,3.492,1.58839,61.31265,61.31265,0,0,0,7.66615.99629,99.56873,99.56873,0,0,1,10.88137,1.42572,11.17267,11.17267,0,0,1,5.85547,3.01412q2.17194,2.23558,2.17242,6.70321,0,6.83711-4.70658,9.47483-4.70611,2.63571-13.09622,2.63723-9.70926,0-14.84224-3.0414-5.132-3.04191-5.43006-10.30945h5.87866Zm45.39975-25.571h5.45127V38.92236h-5.45127Zm25.29822,0V32.786h22.99746v6.13635H440.2496V1.07762Zm36.54126,0h5.45127V38.92236h-5.45127ZM505.70845,5.277Q510.56308.001,520.06061.0005a21.05134,21.05134,0,0,1,9.41218,1.938,14.93132,14.93132,0,0,1,6.06864,5.2492,17.11936,17.11936,0,0,1,2.619,7.56309H532.2838a9.10351,9.10351,0,0,0-3.72646-6.35259q-3.12982-2.25984-8.49673-2.26034-13.33011,0-13.32964,13.83484,0,7.10537,3.44962,10.4984,3.44961,3.39049,9.88,3.39,5.323,0,8.4543-2.3149a9.43271,9.43271,0,0,0,3.76889-6.40615h5.91909a17.33716,17.33716,0,0,1-2.64024,7.61766,14.93408,14.93408,0,0,1-6.08986,5.30275,21.03473,21.03473,0,0,1-9.41218,1.938q-9.497,0-14.35216-5.30275-4.85463-5.30175-4.85512-14.723Q500.85333,10.55144,505.70845,5.277ZM555.835,34.67047q-4.85463-5.33054-4.85512-14.69675,0-9.36822,4.85512-14.67047Q560.68964.00152,570.27308.0005q9.5395,0,14.39565,5.30275,4.85463,5.30325,4.85512,14.67047,0,9.36823-4.85512,14.69674-4.85611,5.33054-14.39565,5.329Q560.68964,39.99949,555.835,34.67047Zm27.85258-14.69675q0-13.83485-13.41549-13.83484-6.55974,0-9.98709,3.33746-3.42843,3.339-3.4284,10.49839,0,13.8879,13.41549,13.8884Q583.68852,33.86162,583.68759,19.97372Zm50.852,12.38185V1.07762h5.4513V38.92236h-7.79348l-24.02-31.27693V38.92236h-5.45131V1.07762h7.79348Z" />
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section id="about" data-section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead" data-ani="fade-in">Connecting market with customized technology solutions</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-base" data-ani="text-reveal">MEICSi is a fabless semiconductor company providing design services for custom ASICs/SoCs in the fields of RF mmWave/Mixed-Signal/Digital design.</p>
+                        <p class="text-base" data-ani="text-reveal">Solid experience in the full product development cycle ensures low risk and time to market edge for our customers. Excellent technical background brings quality and reliability to our solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" data-section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead" data-ani="fade-in">Solutions to fulfill the needs of telecommunications industry</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-base" data-ani="text-reveal">MEICSi provides full solutions implementing the full chain from DSP/Modem bitstream to Antenna. Solutions address the needs of modern wireless high-rate data communications.</p>
+                        <p class="text-base" data-ani="text-reveal">Several customer IP designs, are included in the portfolio of the company, either already fabricated, or being currently under development.</p>
+                        <ul class="services-list">
+                            <li class="services-list__item" data-ani="fade-in">
+                                <div class="services-list__icon">
+                                    <div class="icon-animation is-animating">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                                            <path fill="currentColor" d="M36.7045,40.191l11.826,7.629-11.826,6.445Zm0-24.349,11.721,6.763-11.721,6.842Zm-5.911-5.116v18.62l-13.504-8.712-3.205,4.968,13.874,8.947-13.761,8.032,2.979,5.104,13.617-7.947v19.5l4.369,2.596,20.565-11.207.188-5.077-16.663-10.748,16.55-9.659-.012-5.112L35.22549,8.166Z" />
+                                        </svg>
+
+                                    </div>
+                                </div>
+                                <div class="services-list__text text-tiny">Bluetooth 5 RF<br>Transceiver including<br>Front-End Module</div>
+                            </li>
+                            <li class="services-list__item" data-ani="fade-in">
+                                <div class="services-list__icon">
+                                    <div class="icon-animation is-animating">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                                            <path fill="currentColor" d="M5.519,29.79793q-2.3925-2.3865-4.788-4.778c16.446-17.986,49.347-19.927,68.538-.105q-2.4585,2.3955-4.918,4.796c-15.517-15.6-42.659-16.09-58.832.087m9.832,9.838c-1.665-1.621-3.278-3.193-4.893-4.766,11.505-12.984,35.645-14.378,49.06-.105-1.621,1.564-3.242,3.127-4.966,4.792a27.72605,27.72605,0,0,0-19.591-7.89,27.76141,27.76141,0,0,0-19.61,7.969m5.118,4.758c7.188-7.977,21.809-7.977,29.159.125-1.589,1.595-3.179,3.189-4.871,4.887a14.23674,14.23674,0,0,0-19.488-.024c-1.6-1.661-3.153-3.278-4.8-4.988m19.284,10.221q-2.41948,2.4345-4.578,4.606c-1.582-1.595-3.159-3.187-4.784-4.827,1.722-2.827,7.848-2.426,9.362.221" />
+                                        </svg>
+
+                                    </div>
+                                </div>
+                                <div class="services-list__text text-tiny">WiFi 6/6e<br>MIMO Transceiver<br>including 5G Front-End Module</div>
+                            </li>
+                            <li class="services-list__item" data-ani="fade-in">
+                                <div class="services-list__icon">
+                                    <div class="icon-animation is-animating">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                                            <path fill="currentColor" d="M32.892,59.10243a4.05169,4.05169,0,0,1-4.315,4.189c-2.308,0-4.047-1.201-4.315-3.352h1.612a2.44088,2.44088,0,0,0,2.671,2.103,2.94039,2.94039,0,0,0,.032-5.864,2.83034,2.83034,0,0,0-2.719,1.755l-1.518-.158.601-6.672h7.24v1.297H26.364l-.395,4.442a3.32623,3.32623,0,0,1,3.083-1.913A3.88074,3.88074,0,0,1,32.892,59.10243Zm6.691-2.45h5.928v6.466H44.12v-3.035a4.21592,4.21592,0,0,1-4.205,3.209c-3.114,0-5.517-2.498-5.517-6.181,0-3.684,2.339-6.182,5.644-6.182a5.05657,5.05657,0,0,1,5.295,3.89h-1.66a3.6081,3.6081,0,0,0-3.636-2.546c-2.387,0-3.984,1.992-3.984,4.838,0,2.861,1.628,4.837,4.047,4.837a3.609,3.609,0,0,0,3.81-3.873H39.582v-1.423ZM5.519,25.72643q-2.3925-2.3865-4.788-4.778c16.446-17.986,49.347-19.927,68.538-.105q-2.4615,2.3955-4.921,4.796c-15.514-15.6-42.656-16.09-58.829.087m9.832,9.838c-1.665-1.621-3.278-3.193-4.893-4.766,11.505-12.984,35.643-14.378,49.06-.105-1.621,1.564-3.242,3.127-4.968,4.794a27.71293,27.71293,0,0,0-19.589-7.892,27.76146,27.76146,0,0,0-19.61,7.969m5.118,4.758c7.186-7.977,21.809-7.977,29.159.125-1.59,1.595-3.179,3.187-4.871,4.887a14.23674,14.23674,0,0,0-19.488-.024c-1.6-1.66-3.153-3.278-4.8-4.988" />
+                                        </svg>
+
+                                    </div>
+                                </div>
+                                <div class="services-list__text text-tiny">Multi-Standard<br>RF Transceiver<br>including 5G</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" data-section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead" data-ani="fade-in">Providing high-end experience from top-level specifications to chip implementation</p>
+                    </div>
+                    <div class="col">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide text-base">
+                                    <h3 data-swipe="text-reveal-on-swipe" data-ani='text-reveal'>
+                                        ANALOG/RF mmWAVE DESIGN</h3>
+                                    <p data-swipe="text-reveal-on-swipe" data-ani='text-reveal'>
+                                        MEICSi has extensive proven experience in RF and mmWave designs in latest CMOS processes developing full RF Receive & Transmit chains.
+                                    </p>
+                                </div>
+                                <div class="swiper-slide text-base">
+                                    <h3 data-swipe="text-reveal-on-swipe">
+                                        High – speed design</h3>
+                                    <p data-swipe="text-reveal-on-swipe">
+                                        Company specializes in PHY and SerDes Transceivers supporting the full cycle from architecture definition & system design all the way to circuitry electrical and physical circuitry design for advanced nanoscale technology nodes.
+                                    </p>
+                                </div>
+                                <div class="swiper-slide text-base">
+                                    <h3 data-swipe="text-reveal-on-swipe">
+                                        Digital design</h3>
+                                    <p data-swipe="text-reveal-on-swipe">
+                                        Digital design experience fulfills RTL implementations / Verification / Back-End for complex digital systems.
+                                    </p>
+                                </div>
+                                <div class="swiper-slide text-base">
+                                    <h3 data-swipe="text-reveal-on-swipe">
+                                        Lab testing</h3>
+                                    <p data-swipe="text-reveal-on-swipe">
+                                        Company capabilities extend to LAB characterization of the developed ICs.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="careers" data-section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead" data-ani="fade-in">Meics<span class='lowercase'>i</span> is constantly seeking for talented engineers to enter the team and join forces.</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-base" data-ani="text-reveal">if you would like to work in an open-space, warm and collaboration-oriented environment, please contact:</p>
+                        <a id="m2" href="mailto:hello@gmail.com" data-ani="fade-in" class="text-lg">hello@gmail.com</a>
+                        <p class="text-base" data-ani="text-reveal">All levels of experience are welcome!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" data-section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead" data-ani="fade-in">Please don't hesitate to contact us!</p>
+                    </div>
+                    <div class="col">
+                        <ul class="contact-details text-lg">
+                            <li class="contact-details__item">
+                                <div class="text-sm" data-ani="fade-in">S:</div>
+                                <div data-ani="fade-in">
+                                    <a href="https://www.linkedin.com/company/meicsi/about/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                                            <path fill="currentColor" d="M35,0A35,35,0,1,0,70,35,34.99992,34.99992,0,0,0,35,0ZM24.03152,54.43767H15.897V28.30075h8.13457ZM19.96674,24.73a4.71151,4.71151,0,1,1,4.7065-4.7115A4.70745,4.70745,0,0,1,19.96674,24.73ZM54.456,54.43767H46.33148V41.731c0-3.03419-.05257-6.93624-4.22249-6.93624-4.22751,0-4.86923,3.30206-4.86923,6.71761V54.43767h-8.1137V28.30075h7.78742v3.56909h.11016A8.5313,8.5313,0,0,1,44.70591,27.649c8.22386,0,9.7493,5.41915,9.7493,12.4572V54.43767Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="contact-details__item">
+                                <div class="text-sm" data-ani="fade-in">A:</div>
+                                <div data-ani="text-reveal">Aoou 10, 16562 <br> Athens – Greece</div>
+                            </li>
+                            <li class="contact-details__item">
+                                <div class="text-sm" data-ani="fade-in">P:</div>
+                                <div><a href="+30 210 692 3348" data-ani="text-reveal">+30 210 692 3348</a></div>
+                            </li>
+                            <li class="contact-details__item">
+                                <div class="text-sm" data-ani="fade-in">E:</div>
+                                <div><a id="m1" href="mailto:hello@gmail.com" data-ani="text-reveal">hello@gmail.com</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-row">
+                    <p class="text-tiny">All Rights Reserved 2021 ©MEICSi</p>
+                    <p class="text-tiny">Website | Design: Common Ground, Development: Phrase</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <div class="cursor">
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+            <path fill="currentColor" d="M34,9.95914,24.04086,0H9.95819L0,9.95914V24.04181L9.95819,34H24.04086L34,24.04181Z" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+            <path fill="currentColor" d="M23.62745,1,33,10.373V23.62793L23.62747,33H10.37207L1,23.62793V10.373L10.37209,1H23.62745m.41422-1H9.95785L0,9.9588V24.04215L9.95785,34H24.04167L34,24.04215V9.9588L24.04167,0Zm-7.068,9.16587V11.1527l8.13759,4.94357H16.97366l-9.713.0019v1.77614l9.713.0019h8.13759l-8.13759,4.94357V24.8346l2.04187-1.19532,7.72381-4.75092V15.08412L19.01553,10.347Z" />
+        </svg>
+
+    </div>
+
+    <div class="backdrop"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>
