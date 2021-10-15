@@ -168,12 +168,22 @@ function cursorCallback() {
 	});
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+	setTimeout(function () {
+		if (introClicked == false) {
+			introScene();
+		}
+	}, 3000);
+});
+
 // import Swiper from "swiper";
 // import Swiper styles
 // import "swiper/swiper-bundle.css";
 
-const breakpointSm = 768;
+const breakpointSm = 860;
 const links = document.querySelectorAll("[data-set]");
+
+const sectionTitle = document.querySelector(".header__section-title");
 
 var scrollReseted = false;
 
@@ -204,6 +214,8 @@ window.addEventListener("load", function (e) {
 	setSizes();
 
 	toggleNav();
+
+	navToggle.click();
 
 	toggleServicesText();
 
@@ -252,24 +264,28 @@ function scrollAnimation() {
 	sa.to(headerBackdrop, 0.3, {
 		autoAlpha: 1,
 	});
+	sa.to(sectionTitle, 0.3, {
+		autoAlpha: 1,
+	});
 	sa.to(backdrop, 0.3, {
 		autoAlpha: 1,
-		ease: Power1.easeInOut,
-		delay: 0.3,
+		delay: -0.3,
 	});
 	sa.to(indicator, 0.3, {
 		autoAlpha: 1,
-		ease: Power1.easeInOut,
 		delay: -0.3,
 		onComplete: scrollAnimationComplete,
 	});
 	sa.play();
 
+	backdrop.style.position = "fixed";
 	document.querySelector(".header__logo-a").style.display = "block";
 	document.querySelector(".header__logo-b").style.width = "88%";
 }
 
 function sectionsScrolled() {
+	main.classList.add("is-scrolled");
+	backdrop.classList.add("is-scrolled");
 	nav.classList.add("is-scrolled");
 	symbolMoto.classList.remove("is-active");
 	TweenMax.to(symbol, 0.4, {
@@ -289,13 +305,17 @@ function sectionsScrolled() {
 const nav = document.querySelector(".nav");
 const navToggle = document.querySelector(".header__nav-toggle");
 const navLinks = document.getElementsByClassName("nav__link");
-const sectionTitle = document.querySelector(".header__section-title-text");
+const sectionTitleText = document.querySelector(".header__section-title-text");
+const sectionTitleIcon = document.querySelector(".header__section-title-icon");
 const main = document.getElementsByTagName("main")[0];
 
 function toggleNav() {
 	navToggle.addEventListener("click", function (event) {
 		this.classList.toggle("is-active");
 		nav.classList.toggle("is-active");
+		sectionTitleText.classList.toggle("is-hidden");
+		sectionTitleIcon.classList.toggle("is-hidden");
+		document.body.classList.toggle("is-locked");
 	});
 }
 
@@ -322,9 +342,12 @@ function scrollToSection() {
 				if (window.innerWidth < breakpointSm) {
 					// Hide nav
 					nav.classList.remove("is-active");
-					navToggle.classList.toggle("is-active");
+					navToggle.classList.remove("is-active");
+					sectionTitleText.classList.remove("is-hidden");
+					sectionTitleIcon.classList.remove("is-hidden");
+					document.body.classList.remove("is-locked");
 				}
-				sectionTitle.querySelector.innerHTML = href.substring(1);
+				sectionTitleText.querySelector.innerHTML = href.substring(1);
 			},
 			false
 		);
@@ -345,7 +368,7 @@ function observeSectionsScroll(navLinks) {
 	for (let section of dataSections) {
 		if (isInViewport(section)) {
 			// Set section title
-			sectionTitle.innerHTML = section.id;
+			sectionTitleText.innerHTML = section.id;
 			// Deactivate all links
 			for (let navLink of navLinks) {
 				navLink.classList.remove("is-active");
@@ -358,7 +381,7 @@ function observeSectionsScroll(navLinks) {
 			let navIndicator = document.querySelector(".nav__indicator");
 
 			if (section.id == "about") {
-				navIndicator.style.width = "calc(20% - 60px)";
+				navIndicator.style.width = "calc(20% - 40px)";
 				headerBackdrop
 					.querySelectorAll(".header__backdrop-image")
 					.forEach((backdrop) =>
@@ -373,7 +396,7 @@ function observeSectionsScroll(navLinks) {
 					.forEach((backdrop) =>
 						backdrop.classList.remove("is-active")
 					);
-				navIndicator.style.width = "calc(40% - 60px)";
+				navIndicator.style.width = "calc(40% - 30px)";
 				headerBackdrop
 					.querySelector(".header__backdrop-image--2")
 					.classList.add("is-active");
@@ -383,7 +406,7 @@ function observeSectionsScroll(navLinks) {
 					.forEach((backdrop) =>
 						backdrop.classList.remove("is-active")
 					);
-				navIndicator.style.width = "calc(60% - 60px)";
+				navIndicator.style.width = "calc(60% - 10px)";
 				headerBackdrop
 					.querySelector(".header__backdrop-image--3")
 					.classList.add("is-active");
@@ -393,7 +416,7 @@ function observeSectionsScroll(navLinks) {
 					.forEach((backdrop) =>
 						backdrop.classList.remove("is-active")
 					);
-				navIndicator.style.width = "calc(80% - 60px)";
+				navIndicator.style.width = "calc(80% - 10px)";
 				headerBackdrop
 					.querySelector(".header__backdrop-image--4")
 					.classList.add("is-active");
@@ -403,7 +426,7 @@ function observeSectionsScroll(navLinks) {
 					.forEach((backdrop) =>
 						backdrop.classList.remove("is-active")
 					);
-				navIndicator.style.width = "calc(100% - 60px)";
+				navIndicator.style.width = "100%";
 				headerBackdrop
 					.querySelector(".header__backdrop-image--5")
 					.classList.add("is-active");
@@ -490,18 +513,15 @@ function setSizes() {
 
 	for (let section of sections) {
 		if (window.innerWidth >= breakpointSm) {
-			// section.style.minHeight = "auto";
-			// section.style.height = "100%";
 			section.style.minHeight = `${sectionHeight}px`;
 		} else {
 			section.style.minHeight = `${sectionHeight}px`;
 			section.style.height = "auto";
 		}
-		// section.style.top = `${headerHeight}px`;
 	}
 	if (window.innerWidth < breakpointSm) {
 		nav.style.height = `${sectionHeight}px`;
-		nav.style.top = `${headerHeight - 68}px`;
+		nav.style.top = `${headerHeight}px`;
 	} else {
 		nav.style.height = "auto";
 		nav.style.top = "auto";
