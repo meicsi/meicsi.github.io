@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
-<body class="no-scroll">
+<body class="hidden">
 
     <div id="loader">
         <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
@@ -21,7 +21,15 @@
     <div id="swipe-down"></div>
 
 
-    <header class="header">
+    <div class="backdrop-clone">
+        <div class="backdrop-clone-image backdrop-clone-image--1 is-active"></div>
+        <div class="backdrop-clone-image backdrop-clone-image--2"></div>
+        <div class="backdrop-clone-image backdrop-clone-image--3"></div>
+        <div class="backdrop-clone-image backdrop-clone-image--4"></div>
+        <div class="backdrop-clone-image backdrop-clone-image--5"></div>
+    </div>
+
+    <header class="header is-scrolled">
         <div class="header__backdrop">
             <div class="header__backdrop-image header__backdrop-image--1 is-active"></div>
             <div class="header__backdrop-image header__backdrop-image--2"></div>
@@ -31,7 +39,7 @@
         </div>
 
         <div class="container">
-            <h1 class="header__logo">
+            <h1 class="header__logo is-animating">
                 <a href="/">
                     <div class="header__logo-a">
                         <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
@@ -56,7 +64,7 @@
             </h1>
         </div>
 
-        <div class="header__section-title">
+        <div class="header__section-title is-scrolled">
             <div class="header__section-title-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18">
                     <path fill="currentColor" d="M11.97152.5V2.65656l8.82842,5.36293H11.97152l-10.53791.0019V9.94824l10.53791.0019h8.82842L11.97152,15.314V17.5l2.21541-1.29754,8.37946-5.15411V6.92127L14.18693,1.78236Z" />
@@ -77,7 +85,7 @@
 
         </div>
 
-        <nav class="nav">
+        <nav class="nav is-scrolled">
             <div class="container">
                 <ul class="nav__links">
                     <div class="nav__indicator">
@@ -162,11 +170,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <p class="lead" data-ani="fade-in">Connecting market with customized technology solutions</p>
+                        <p class="lead is-active" data-ani="fade-in">Connecting market with customized technology solutions</p>
                     </div>
                     <div class="col">
-                        <p class="text-base" data-ani="text-reveal">MEICSi is a fabless semiconductor company providing design services for custom ASICs/SoCs in the fields of RF mmWave / Mixed-Signal / Digital design.</p>
-                        <p class="text-base" data-ani="text-reveal">Solid experience in the full product development cycle ensures low risk and time to market edge for our customers. Excellent technical background brings quality and reliability to our solutions.</p>
+                        <p class="text-base is-active" data-ani="text-reveal">MEICSi is a fabless semiconductor company providing design services for custom ASICs/SoCs in the fields of RF mmWave / Mixed-Signal / Digital design.</p>
+                        <p class="text-base is-active" data-ani="text-reveal">Solid experience in the full product development cycle ensures low risk and time to market edge for our customers. Excellent technical background brings quality and reliability to our solutions.</p>
                     </div>
                 </div>
             </div>
@@ -302,7 +310,7 @@
                             </li>
                             <li class="contact-details__item">
                                 <div class="text-sm" data-ani="fade-in">A:</div>
-                                <div data-ani="text-reveal">Aoou 10, 16562 <br> Athens – Greece</div>
+                                <div data-ani="text-reveal">Aoou 10, 11523 <br> Athens – Greece</div>
                             </li>
                             <li class="contact-details__item">
                                 <div class="text-sm" data-ani="fade-in">P:</div>
@@ -339,7 +347,7 @@
 
     </div>
 
-    <div class="backdrop"></div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="scripts/main.js"></script>
