@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	setTimeout(function () {
 		if (introClicked == false && introEnabled) {
 			introScene();
+			introClicked = true;
 		}
 	}, 3000);
 });
@@ -406,7 +407,7 @@ const servicesTexts = document.querySelectorAll(".services-list__text");
 
 function isInViewport(element) {
 	const rect = element.getBoundingClientRect();
-	return rect.top >= 0 && rect.top < window.innerHeight - headerHeight;
+	return rect.top >= 0 && rect.top < window.innerHeight;
 }
 
 function switchImage(i) {
