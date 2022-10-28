@@ -1184,6 +1184,14 @@ main {
     width: 160px;
     height: 160px; }
 
+#espa-into-banner {
+  position: fixed;
+  left: 50%;
+  top: 100%;
+  margin-left: -90px;
+  margin-top: -90px;
+  z-index: 500; }
+
 .backdrop {
   left: 0;
   top: 0;

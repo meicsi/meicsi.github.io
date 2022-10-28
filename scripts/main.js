@@ -126,7 +126,6 @@ window.track = function(pagePath){
       logOperation = setTimeout(function(e) {
         ga('set', 'page', pagePath);
         ga('send', 'pageview');
-        console.log(pagePath);
      }, 500);
     }
 }
@@ -138,6 +137,7 @@ const loader = document.getElementById("loader");
 const symbolMoto = document.getElementById("symbol-moto");
 const moto = document.querySelector(".moto-container");
 const symbol = document.querySelector(".symbol");
+const espaBanner = document.getElementById("espa-into-banner");
 
 var introClicked = false;
 
@@ -178,6 +178,12 @@ function introComplete() {
 function introScene() {
 	setSizes();
 	var tl = new TimelineMax();
+	
+	tl.to(espaBanner, 0.5, {
+		autoAlpha: 0,
+		delay: -0.2,
+		ease: Power1.easeInOut,
+	})
 
 	tl.to(swipeDown, 0.5, {
 		x: 0,
