@@ -95,42 +95,6 @@ window.addEventListener("load", function (e) {
 	clickSwipe(swiper);
 });
 
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(
-    window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-       
-var GA_LOCAL_STORAGE_KEY = 'ga:clientId';
-var GA_KEY = 'UA-160999435-1';
-if (window.localStorage) {
-  ga('create', GA_KEY , {
-    'storage': 'none',
-    'clientId': localStorage.getItem(GA_LOCAL_STORAGE_KEY)
-  });
-  ga(function(tracker) {
-    localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
-  });
-}
-else {
-  ga('create', GA_KEY , {
-    'storage': 'none'
-  });
-}
-var currentPath = "";
-var logOperation = null;
-window.track = function(pagePath){
-    if (currentPath!=pagePath){
-      clearTimeout(logOperation);
-      currentPath = pagePath;
-      // Debounce to avoid logging pages when
-      // user clicks on the menu and skips 
-      // some pages
-      logOperation = setTimeout(function(e) {
-        ga('set', 'page', pagePath);
-        ga('send', 'pageview');
-     }, 500);
-    }
-}
-
-track('/');
 const swipeDown = document.getElementById("swipe-down");
 const intro = document.getElementById("intro");
 const loader = document.getElementById("loader");
@@ -485,23 +449,23 @@ function observeSectionsScroll(navLinks) {
 			if (section.id == "about") {
 				navIndicator.style.width = "calc(20% - 40px)";
 				switchImage(1);
-				track('/about');
+				//track('/about');
 			} else if (section.id == "services") {
 				navIndicator.style.width = "calc(40% - 30px)";
 				switchImage(2);
-				track('/services');
+				//track('/services');
 			} else if (section.id == "expertise") {
 				navIndicator.style.width = "calc(60% - 10px)";
 				switchImage(3);
-				track('/expertise');
+				//track('/expertise');
 			} else if (section.id == "careers") {
 				navIndicator.style.width = "calc(80% - 10px)";
 				switchImage(4);
-				track('/careers');
+				//track('/careers');
 			} else if (section.id == "contact") {
 				navIndicator.style.width = "100%";
 				switchImage(5);
-				track('/contact');
+				//track('/contact');
 			}
 			// Stop looking further
 			// Fix issue of starting in Services in 1080p resolution
